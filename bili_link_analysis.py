@@ -39,6 +39,8 @@ async def analysis_main1(bot, ev):
     #print(t)
     #a='''
     title = re.findall(r'name="title" content=".*?_哔哩哔哩_bilibili">',t)
+    if (len(title)==0):
+        title = re.findall(r'name="title" content=".*?">',t)
     title = re.sub(r'name="title" content="','',title[0])
     title = re.sub(r'_哔哩哔哩_bilibili">','',title)
     up = re.findall(r'name="author" content=".*?">',t)
@@ -65,6 +67,8 @@ async def analysis_main1(bot, ev):
     #print(t)
     #a='''
     title = re.findall(r'name="title" content=".*?_哔哩哔哩_bilibili">',t)
+    if (len(title)==0):
+        title = re.findall(r'name="title" content=".*?">',t)
     title = re.sub(r'name="title" content="','',title[0])
     title = re.sub(r'_哔哩哔哩_bilibili">','',title)
     up = re.findall(r'name="author" content=".*?">',t)
@@ -91,6 +95,8 @@ async def analysis_main(bot, ev):
     #print(t)
     #a='''
     title = re.findall(r'name="title" content=".*?_哔哩哔哩_bilibili">',t)
+    if (len(title)==0):
+        title = re.findall(r'name="title" content=".*?">',t)
     title = re.sub(r'name="title" content="','',title[0])
     title = re.sub(r'_哔哩哔哩_bilibili">','',title)
     up = re.findall(r'name="author" content=".*?">',t)
