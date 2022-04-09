@@ -21,7 +21,7 @@ sv = Service(
 
 #xzw = on_command("小作文", rule=to_me(), priority=1)
 
-@sv.on_rex(r'小作文')
+@sv.on_fullmatch(["小作文"])
 async def return_xzw(bot, ev):
 
     ret_xzw = await get_xzw()
