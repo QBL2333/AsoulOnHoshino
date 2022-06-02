@@ -49,14 +49,19 @@ async def analysis_main1(bot, ev):
     pic = re.findall(r'itemprop="image" content=".*?">',t)
     pic = re.sub(r'itemprop="image" content="', '', pic[0])
     pic = re.sub(r'">','',pic)
-    rely = MessageSegment(type_ = 'image',
-                          data = {
-                                "file" : pic
-                            })
     ret = '标题：' + title + '\n' + 'up主：' + up + '\n' + '链接：' + text
     print(ret)
-    await bot.send(ev,ret)
-    await bot.send(ev,rely)
+    rely = {
+        "type": "node",
+        "data": {
+            "name": "晚暗",
+            "uin": "757994086",
+            "content": '标题：'+title +'\n'+'up主：'+up+'\n'+'链接：'+text+'\n'+f"[CQ:image,file={pic}]".strip()
+        }
+    }
+    list = []
+    list.append(rely)
+    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=list)
     #'''
 
 @sv.on_rex(r'b23.tv/(.*)', normalize = False)
@@ -79,14 +84,17 @@ async def analysis_main1(bot, ev):
     pic = re.findall(r'itemprop="image" content=".*?">',t)
     pic = re.sub(r'itemprop="image" content="', '', pic[0])
     pic = re.sub(r'">','',pic)
-    rely = MessageSegment(type_ = 'image',
-                          data = {
-                                "file" : pic
-                            })
-    ret = '标题：' + title + '\n' + 'up主：' + up + '\n' + '链接：' + text
-    print(ret)
-    await bot.send(ev,ret)
-    await bot.send(ev,rely)
+    rely = {
+        "type": "node",
+        "data": {
+            "name": "晚暗",
+            "uin": "757994086",
+            "content": '标题：' + title + '\n' + 'up主：' + up + '\n' + '链接：' + text + '\n' + f"[CQ:image,file={pic}]".strip()
+        }
+    }
+    list = []
+    list.append(rely)
+    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=list)
 
     
 @sv.on_rex((r'(^BV([a-zA-Z0-9])+)'), normalize = False)
@@ -109,11 +117,14 @@ async def analysis_main(bot, ev):
     pic = re.findall(r'itemprop="image" content=".*?">',t)
     pic = re.sub(r'itemprop="image" content="', '', pic[0])
     pic = re.sub(r'">','',pic)
-    rely = MessageSegment(type_ = 'image',
-                          data = {
-                                "file" : pic
-                            })
-    ret = '标题：' + title + '\n' + 'up主：' + up + '\n' + '链接：' + text
-    print(ret)
-    await bot.send(ev,ret)
-    await bot.send(ev,rely)
+    rely = {
+        "type": "node",
+        "data": {
+            "name": "晚暗",
+            "uin": "757994086",
+            "content": '标题：' + title + '\n' + 'up主：' + up + '\n' + '链接：' + text + '\n' + f"[CQ:image,file={pic}]".strip()
+        }
+    }
+    list = []
+    list.append(rely)
+    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=list)
